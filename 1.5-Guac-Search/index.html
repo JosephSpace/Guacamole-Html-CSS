@@ -1,0 +1,209 @@
+<html><head>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" type="image/png" href="https://res.cloudinary.com/apideck/image/upload/v1606355124/icons/ziraatkatilim-tr">
+
+    <title>ZKBETA</title>    
+
+  <style type="text/css">/* Chart.js */
+@keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style></head>
+  <body>
+    
+<div class="contain">
+
+
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.0/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/cr-1.5.0/fh-3.1.4/r-2.2.2/datatables.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="/4-site/searchbar/searchbar.css">
+<nav class="navbar navbar-expand-lg navbar-mainbg">
+    <a class="navbar-brand navbar-logo" href="../1-Guac-Dashboard/searchbar.html" style="padding:0;"><img src="https://res.cloudinary.com/apideck/image/upload/v1606355124/icons/ziraatkatilim-tr" alt="" style="height:2em">  ZKConnector BETA</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fas fa-bars text-white"></i></button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+          <div class="hori-selector" style="top: 0px; left: 1409.02px; height: 62px; width: 193.797px;"><div class="left"></div><div class="right"></div></div>
+          <li class="nav-item">
+              <a href="/4-site/Dashboard/dashboard.html"><i class="fas fa-home"></i>Dashboard</a>
+          </li>
+
+		  <li class="nav-item">
+            <a href="../1-Guac-Dashboard/main.html"><i class="fas fa-user"></i>Dashboard Beta</a>
+          </li> 
+
+          <li class="nav-item">
+              <a href="../2-Guac-Login/index.html"><i class="fas fa-user"></i>Login Beta</a>
+          </li>
+
+          <li class="nav-item">
+            <a href="../3-Guac-Table/index.html"><i class="fas fa-cog"></i>Connections Beta</a>
+          </li>
+
+          <li class="nav-item active">
+            <a class="nav-link disabled" href="javascript:void(0);" tabindex="-1" aria-disabled="true"><i class="fas fa-gear"></i>Dashboard Beta</a>
+        </li> 
+
+      </ul>
+  </div>
+</nav>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+<main>
+    <div class="container-lg">
+  <div class="row card" style="width:88%; margin-top:2%; margin-bottom:2%; margin-left:6%; padding-bottom:1%;">
+    <div class="col" style="padding:10%;padding-top:3%;padding-bottom:0%;">
+  <form method="POST" action="/search/">
+    <input type="hidden" name="csrfmiddlewaretoken" value="TuHwUINayUa8LvmxL86hPpzppT15JqdgWfOj2vXtCU0TtlwKCemuOKj2N065gvgu">
+
+
+    <div class="row">
+      <div class="col">
+        <label for="username_query">Kullanıcı Adı:</label>
+        <input type="text" name="username" class="form-control" id="username_query" maxlength="100">
+      </div>
+      <div class="col">
+        <label for="ip_query">Terminal Ip:</label>
+        <input type="text" name="ip" class="form-control" id="ip_query" maxlength="20">
+      </div>
+    </div>
+    <div class="row" style="margin-top:1%;">
+      <div class="col">
+        <label for="inlineFormInputName">Başlangıç Tarihi:</label>
+        <input type="datetime-local" name="starting_date" value="2024-05-01 11:14:28.129711" class="form-control" id="inlineFormInputName" required="">
+      </div>
+      <div class="col">
+        <label for="inlineFormInputName">Bitiş Tarihi:</label>
+        <input type="datetime-local" name="due_date" value="2024-05-01 11:14:28.129790" class="form-control" id="inlineFormInputName" required="">
+      </div>
+    </div>
+
+  <input class="btn btn-success btn-block btn-lg" type="submit" value="Sorgu" style="margin-top:2%;margin-bottom:3%;">    
+  </form>
+    </div>
+  </div>
+  <div class="row card" style="width:88%; margin-top:1%; margin-bottom:2%;  margin-left:6%; ">
+    <div class="col" style="padding:5%;padding-top:2%;padding-bottom:2%;">
+      <button class="btn btn-danger delete-all-button" style="margin-bottom:1%; float:right;"><i class="far fa-trash-alt"></i>Delete All Video Files</button>
+      <div id="table_id_wrapper" class="dataTables_wrapper no-footer"><div class="dt-buttons">      <button class="dt-button buttons-copy buttons-html5" tabindex="0" aria-controls="table_id" type="button"><span>Copy</span></button> <button class="dt-button buttons-csv buttons-html5" tabindex="0" aria-controls="table_id" type="button"><span>CSV</span></button> <button class="dt-button buttons-excel buttons-html5" tabindex="0" aria-controls="table_id" type="button"><span>Excel</span></button> <button class="dt-button buttons-pdf buttons-html5" tabindex="0" aria-controls="table_id" type="button"><span>PDF</span></button> </div><div class="clear"></div><div class="dataTables_length" id="table_id_length"><label>Show <select name="table_id_length" aria-controls="table_id" class=""><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div><div id="table_id_filter" class="dataTables_filter"><label>Search:<input type="search" class="" placeholder="" aria-controls="table_id"></label></div><table id="table_id" class="display cell-border table-border dataTable no-footer" role="grid" aria-describedby="table_id_info">
+        <thead>
+          <tr style="text-align:center;" role="row"><th scope="col" class="table-dark sorting" tabindex="0" aria-controls="table_id" rowspan="1" colspan="1" aria-label="Ip: activate to sort column ascending" style="width: 127px;">Ip</th><th scope="col" class="table-dark sorting" tabindex="0" aria-controls="table_id" rowspan="1" colspan="1" aria-label="Username: activate to sort column ascending" style="width: 319px;">Username</th><th scope="col" class="table-dark sorting_asc" tabindex="0" aria-controls="table_id" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Timestamp: activate to sort column descending" style="width: 349px;">Timestamp</th><th scope="col" class="table-dark sorting" tabindex="0" aria-controls="table_id" rowspan="1" colspan="1" aria-label="Duration: activate to sort column ascending" style="width: 281px;">Duration</th><th scope="col" class="table-dark sorting" tabindex="0" aria-controls="table_id" rowspan="1" colspan="1" aria-label="Actions: activate to sort column ascending" style="width: 262px;">Actions</th></tr>
+        </thead>
+        <tbody>
+
+            
+        <tr class="odd"><td valign="top" colspan="5" class="dataTables_empty">No data available in table</td></tr></tbody>
+      </table><div class="dataTables_info" id="table_id_info" role="status" aria-live="polite">Showing 0 to 0 of 0 entries</div><div class="dataTables_paginate paging_simple_numbers" id="table_id_paginate"><a class="paginate_button previous disabled" aria-controls="table_id" data-dt-idx="0" tabindex="0" id="table_id_previous">Previous</a><span></span><a class="paginate_button next disabled" aria-controls="table_id" data-dt-idx="1" tabindex="0" id="table_id_next">Next</a></div></div>
+    </div>
+  </div>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.0/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/cr-1.5.0/fh-3.1.4/r-2.2.2/datatables.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/af-2.3.0/b-1.5.2/b-colvis-1.5.2/b-flash-1.5.2/b-html5-1.5.2/b-print-1.5.2/cr-1.5.0/fh-3.1.4/r-2.2.2/datatables.min.js"></script>
+<script type="text/javascript" src="/4-site/searchbar/js/noify.js"></script>
+<script type="text/javascript" src="/4-site/searchbar/js/styles.js"></script>
+<script type="text/javascript" src="../4-Navbar/navbar.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/1.13.7/sorting/datetime-moment.js"></script>
+<script>
+$(document).ready(function(){
+  $('.delete-all-button').click(function(){
+    $.ajax({
+      url:/deletevids/,
+      type:'post',
+      data:{
+        csrfmiddlewaretoken:'TuHwUINayUa8LvmxL86hPpzppT15JqdgWfOj2vXtCU0TtlwKCemuOKj2N065gvgu'
+      },
+      success:function(response){
+        $.notify("Deleted all downloaded videos.",{
+          globalPosition:'bottom left',
+          style: 'Warning',
+      });
+      },
+    });
+  });
+});
+</script>
+<script>
+$(document).ready(function(){
+$('.convert-button').click(function(){
+  var self = this;
+  $.notify("Starting video convert.It may take some time.",{style: 'Info',"globalPosition":'bottom left',});
+  $.ajax({
+    url:/encode/,
+    type:'post',
+    data:{
+      vid_id: $(this).val(),
+      csrfmiddlewaretoken:'TuHwUINayUa8LvmxL86hPpzppT15JqdgWfOj2vXtCU0TtlwKCemuOKj2N065gvgu'
+    },
+    success:function(response){
+      $(self).parent().children(".delete-button").show(1000);
+      $(self).parent().children("a").children(".download-button").show(1000);
+      $(self).hide(1000);
+      $.notify("Video covertion succeeded.",{style: 'Success',"globalPosition":'bottom left',});
+    },
+  });
+
+});
+
+});
+
+$(document).ready(function(){
+  $('.delete-button').click(function(){
+    var self = this;
+    $.ajax({
+      url:/deletevid/,
+      type:'post',
+      data:{
+        vid_id: $(this).val(),
+        csrfmiddlewaretoken:'TuHwUINayUa8LvmxL86hPpzppT15JqdgWfOj2vXtCU0TtlwKCemuOKj2N065gvgu'
+      },
+      success:function(response){
+        $(self).parent().children(".convert-button").show(1000);
+        $(self).parent().children("a").children(".download-button").hide(1000);
+        $(self).hide(1000);
+        $.notify("Deleting converted video.",{
+          globalPosition:'bottom left',
+          style: 'Warning',
+
+      });
+      },
+    });
+
+  });
+
+});
+</script>
+<script>
+$(document).ready(function() {
+  $.fn.dataTable.moment('DD MMMM YYYY HH:mm', 'tr');
+  $('#table_id').DataTable({
+    order: [[2, 'asc']],
+    dom: 'B<"clear">lfrtip',
+    buttons: {
+        name: 'primary',
+        buttons: [ 'copy', 'csv', 'excel','pdf']
+      }      
+  });
+});
+</script>
+
+
+
+</main>
+
+
+</div>
+
+  
+
+</body></html>
